@@ -26,7 +26,7 @@ export function ProfileCard({ id }) {
   }, [id, user]);
 
   return (
-    <Card className="max-w-xs mt-8 po max-h-36 bg-gray-200">
+    <Card className="max-w-lg w-72 mt-8 po max-h-36 bg-gray-200">
       <h1>Welcome, User ID : {filteredUser.id}</h1>
       <div className="flex flex-col pb-10">
         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">

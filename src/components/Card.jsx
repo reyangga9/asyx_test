@@ -3,7 +3,7 @@ import checkDone from "../icons/checkDone.png";
 import unDone from "../icons/full-moon_3120504.png";
 import { useParams } from "react-router-dom";
 import { ProfileCard } from "./ProfileCard";
-import { HiTrash } from "react-icons/hi";
+import { HiTrash, HiPencil } from "react-icons/hi";
 import { Button } from "flowbite-react";
 
 const Card = () => {
@@ -32,6 +32,13 @@ const Card = () => {
   const handleTitleDelete = (listIndex) => {
     const updatedLists = [...sortedLists];
     updatedLists.splice(listIndex, 1);
+    setLists(updatedLists);
+  };
+
+  // untuk mengatur edit title
+  const handleTitleEdit = (listIndex, newTitle) => {
+    const updatedLists = [...sortedLists];
+    updatedLists[listIndex].title = newTitle;
     setLists(updatedLists);
   };
 
@@ -72,6 +79,13 @@ const Card = () => {
             >
               <p className="text-xs">{list.title}</p>
             </div>
+            <Button
+              onClick={() =>
+                handleTitleEdit(index, prompt("Edit the title:", list.title))
+              }
+            >
+              <HiPencil size={16} />
+            </Button>
             <Button onClick={() => handleTitleDelete(index)}>
               <HiTrash size={16} />
             </Button>
